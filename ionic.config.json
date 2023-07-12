@@ -1,0 +1,7 @@
+{
+  "name": "2Play",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
