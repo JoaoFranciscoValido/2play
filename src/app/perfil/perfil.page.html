@@ -1,0 +1,61 @@
+<ion-header class="header" [translucent]="true">
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-button (click)="voltar()">
+       <ion-icon  class="seta" name="arrow-back-outline"></ion-icon>
+      </ion-button>  
+    </ion-buttons>   
+    <img class="logo" src="https://media.discordapp.net/attachments/1036449115149697044/1129833963880468480/logoteste.png">
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+
+  <div class="above-section ion-padding">
+
+    <div class="preview">
+      <ion-avatar (click)="changeImage()">
+        <img *ngIf="profile?.imageUrl; else placeholder_avatar;"  [src]="profile?.imageUrl">
+        
+        <ng-template #placeholder_avatar>
+          <div class="fallback">
+            <p>Select avatar</p>
+          </div>
+        </ng-template>
+      </ion-avatar>
+    </div>
+    <div class="heading">
+      <h1 class="main-title">Utilizador</h1>
+    </div>
+  </div>
+
+
+  <div class="login-section ion-padding">
+    <div class="login-form ion-padding">
+      <p class="editar">Perfil</p>
+      <form [formGroup]="credentials">
+        
+        <ion-item>
+          <ion-icon name="mail-outline"></ion-icon>
+          <ion-input type="email" placeholder="utilizador@gmail.com" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-input type="{{ showPwd ? 'text' : 'password' }}" placeholder="******************" formControlName="password"></ion-input>
+          <button style="background-color: transparent;" type="button" (click)="togglePasswordVisibility()" >
+            <ion-icon class="eye" *ngIf="!showPwd" name="eye-outline" item-end></ion-icon>
+            <ion-icon class="eye" *ngIf="showPwd" name="eye-off-outline"></ion-icon>
+          </button>
+        </ion-item>
+        <div class="action-buttons ion-padding">
+          <ion-button  class="login-button" (click)="logout()" >Efetuar Logout</ion-button>
+        </div>
+    </form>
+    </div>
+  </div>
+
+</ion-content>
+

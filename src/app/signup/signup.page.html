@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true">
+  <div class="above-section ion-padding">
+    <div class="loginLogo">
+      <ion-img
+        src="https://media.discordapp.net/attachments/1036449115149697044/1129104420018344008/logo.png"
+        alt="2Play Logo">
+      </ion-img>
+    </div>
+    <div class="heading ion-padding">
+      <h1 class="main-title">Registar</h1>
+    </div>
+  </div>
+
+
+  <div class="login-section ion-padding">
+    <div class="login-form ion-padding">
+      <form [formGroup]="credentials" (ngSubmit)="register()">
+        <ion-item>
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-input type="name" placeholder="Nome"></ion-input>
+          <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Email is invalid</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="mail-outline"></ion-icon>
+          <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
+          <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Email is invalid</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-input type="{{ showPwd ? 'text' : 'password' }}" placeholder="Password" formControlName="password"></ion-input>
+          <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Password is invalid</ion-note>
+          <button style="background-color: transparent;" type="button" (click)="togglePasswordVisibility()" >
+            <ion-icon class="eye" *ngIf="!showPwd" name="eye-outline" item-end></ion-icon>
+            <ion-icon class="eye" *ngIf="showPwd" name="eye-off-outline"></ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-input type="{{ showPwd1 ? 'text' : 'password' }}" placeholder="Confirmar Password"></ion-input>
+          <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Password is invalid</ion-note>
+          <button style="background-color: transparent;" type="button" (click)="togglePasswordVisibility1()" >
+            <ion-icon class="eye" *ngIf="!showPwd1" name="eye-outline" item-end></ion-icon>
+            <ion-icon class="eye" *ngIf="showPwd1" name="eye-off-outline"></ion-icon>
+          </button>
+        </ion-item>
+        <div class="action-buttons ion-padding">
+          <ion-button type="button" (click)="register()" size="large" class="login-button">Registar</ion-button>
+          <p class="register-text">Já tem conta? <a class="singup-link" href="/login" style="text-decoration:none">Login</a></p>
+        </div>
+    </form>  
+    </div>
+  </div>
+</ion-content>

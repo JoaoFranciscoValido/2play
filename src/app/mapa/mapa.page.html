@@ -1,0 +1,31 @@
+<ion-header class="header" [translucent]="true">
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-button (click)="perfil()">
+        <ion-icon class="seta" name="person-outline"></ion-icon>
+      </ion-button>  
+    </ion-buttons>   
+    <img class="logo" src="https://media.discordapp.net/attachments/1036449115149697044/1129833963880468480/logoteste.png">
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div id="map-container">
+    <div class="map"  id="mapa-box" tabindex="0"></div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer">
+    <div class="mapa">
+      <p><ion-icon class="icon" name="map-outline"></ion-icon>  Mapa</p>
+    </div>
+    <div class="lista">
+      <p> <ion-icon class="icon" name="list-outline"></ion-icon>  Lista</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">

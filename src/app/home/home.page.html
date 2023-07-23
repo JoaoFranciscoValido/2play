@@ -1,20 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+
+<ion-header class="header" [translucent]="true">
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-button (click)="voltar()">
+       <ion-icon  class="seta" name="arrow-back-outline"></ion-icon>
+      </ion-button>  
+    </ion-buttons>   
+    <img class="logo" src="https://media.discordapp.net/attachments/1036449115149697044/1129833963880468480/logoteste.png">
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<div class="ion-padding">
+    <ion-content class="imagens">
+      <swiper-container
+        (slidechange)="swiperSlideChanged($event)"
+        [loop]="true"
+        [pagination]="true">
+        <swiper-slide *ngFor="let image of images">
+          <img [src]="image"/>
+        </swiper-slide>
+      </swiper-container>
+    </ion-content>
+    <ion-content class="nome">
+      <p>Campo de Futebol - Lisboa</p>
+    </ion-content>
+    <ion-content class="info">
+      <ion-icon class="a" name="alert-circle-outline"></ion-icon>
+      <p>Aluga para futebol, campo em boas condições, etc.</p>
+      <p>Futebol de 5 - Outdoor</p>
+    </ion-content>
+    <ion-content class="info2">
+      <div class="contact">
+        <p>Contactos:</p>
+        <p>+351 999 999 999</p>
+        <p>217 999 999</p>
+      </div>
+      <div class="preco">
+        <p>Preço:</p>
+        <p>25€ / hora</p>
+      </div>
+    </ion-content>
+    <ion-content class="disp">
+        <h1>
+          <p *ngIf="!showDescription" class="Dis">Disponível</p>
+          <p *ngIf="showDescription" class="Indis">Indisponível</p>
+        </h1>
+    </ion-content>
   </div>
-</ion-content>
+
+<ion-footer class="footer">
+  <ion-toolbar class="footer">
+    <ion-button class="down-button rounded-button" fill="clear" (click)="toggleDescription()">
+      <ion-title class="Alugar" *ngIf="!showDescription">Alugar</ion-title>
+      <ion-title class="Cancelar" *ngIf="showDescription">Cancelar Aluguer</ion-title>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

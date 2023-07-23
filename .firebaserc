@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "play2-dea85": {
+      "hosting": {
+        "app": [
+          "play2-dea85"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "play2-dea85"
+  }
+}
